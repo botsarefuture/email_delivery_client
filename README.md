@@ -2,6 +2,8 @@
 
 This Python client interacts with the provided Flask API for sending emails. It allows you to send emails using the specified SMTP servers.
 
+Github repository of the server: [github.com/botsarefuture/email_delivery_service](https://github.com/botsarefuture/email_delivery_service.git)
+
 ## Installation
 
 1. Clone this repository:
