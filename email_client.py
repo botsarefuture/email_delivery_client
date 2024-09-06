@@ -1,11 +1,22 @@
 import requests
 import time
 
+
 class EmailClient:
     def __init__(self, base_url):
         self.base_url = base_url
 
-    def send_email(self, email_from, email_to, subject, text=None, html=None, email=None, password=None, smtp_index=None):
+    def send_email(
+        self,
+        email_from,
+        email_to,
+        subject,
+        text=None,
+        html=None,
+        email=None,
+        password=None,
+        smtp_index=None,
+    ):
         data = {
             "email_from": email_from,
             "email_to": email_to,
@@ -14,11 +25,12 @@ class EmailClient:
             "html": html,
             "email": email,
             "password": password,
-            "smtp_index": smtp_index
+            "smtp_index": smtp_index,
         }
 
         response = requests.post(f"{self.base_url}/send_email", json=data)
         return response.json()
+
 
 if __name__ == "__main__":
     # Example usage
@@ -35,5 +47,14 @@ if __name__ == "__main__":
     smtp_index = 0  # Index of SMTP server from the list
 
     # Send email
-    response = client.send_email(email_from, email_to, subject, text=text, html=html, email=email, password=password, smtp_index=smtp_index)
+    response = client.send_email(
+        email_from,
+        email_to,
+        subject,
+        text=text,
+        html=html,
+        email=email,
+        password=password,
+        smtp_index=smtp_index,
+    )
     print(response)
